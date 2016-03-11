@@ -18,10 +18,12 @@ Source code type of approach is mandatory. All used 3rd party libraries in this 
 - [ESP8266 - Getting Started & Connected] (https://www.youtube.com/watch?v=z07zjfOHb8E)    
 - [This project is using 3rd party libraries. The library bundle can be copied here to your local ...'Arduino/libraries' folder as such or alternatively you could download the latest versions from the original github location.] (https://github.com/jraivio/IoT-Ralli-Vempain/tree/master/ArduinoCode/libraries)     
 
-###Following technologies is used:
-![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ohw-logo.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/JeeLabs.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ArduinoCommunityLogo.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/mqttorg.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/github.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/esp8266.png) 
+###Following technologies in use:
+
+![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ohw-logo.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/JeeLabs.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/esp8266.png)  ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ArduinoCommunityLogo.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/mqttorg.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/github.png) 
 
 ###Special thanks for:
+
 ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/Tampere_University_of_Technology_logo.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/syk_logo_suomi_jpg.jpg)
 
 
