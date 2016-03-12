@@ -22,7 +22,12 @@ Twitter: https://twitter.com/RalliRitu
 
 ###Following technologies in use:
 
-![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ohw-logo.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/JeeLabs.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/esp8266.png)  ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ArduinoCommunityLogo.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/mqttorg.png) ![alt tag] (https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/github.png) 
+<a> <a href="http://www.open-electronics.org"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ohw-logo.png" height="200" width="200"> </a>
+<a> <a href="http://jeelabs.org"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/JeeLabs.png" alt="esp-link by JeeLabs" height="150" width="150"> </a>
+<a> <a href="http://www.esp8266.com"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/esp8266.png" alt="ESP8266" height="100" width="200"> </a> 
+<a> <a href="https://www.arduino.cc/"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ArduinoCommunityLogo.png" height="100" width="200"> </a>
+<a> <a href="http://mqtt.org"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/mqttorg.png" height="100" width="200"> </a>
+<a> <a href="https://github.com/"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/github.png" height="150" width="200"> </a>
 
 ###Special thanks for:
 
