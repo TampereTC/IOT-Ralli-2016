@@ -354,7 +354,7 @@ void HandleIncomingJson() {
         course = root["mdata"][0];
         mspeed = root["mdata"][1];
         mdelay = root["mdata"][2];
-    if (command="lights") {
+    if (command=="lights") {
     // Lights on, not blinking
       if (value == 1 && (ldelay == 0 || ldelay == NULL)){
         digitalWrite(pin, HIGH);
@@ -376,7 +376,7 @@ void HandleIncomingJson() {
             if (pin == 11) { pin11_blinking = false; }  
           }
         }
-    if (command ="drive") {motor_active = true; mStartMillis = millis();}
+    if (command =="drive") {motor_active = true; mStartMillis = millis();}
     }
   // returning the default state of serialEvent1()
   stringComplete = false;
