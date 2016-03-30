@@ -18,6 +18,11 @@ Source code type of approach is mandatory. All used 3rd party libraries in this 
 - [ESP8266 - Getting Started & Connected] (https://www.youtube.com/watch?v=z07zjfOHb8E)    
 - [This project is using 3rd party libraries. The library bundle can be copied here to your local ...'Arduino/libraries' folder as such or alternatively you could download the latest versions from the original github location.] (https://github.com/jraivio/IoT-Ralli-Vempain/tree/master/ArduinoCode/libraries)     
 
+###Media:    
+Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twitter.com/Kampusareena) [#codingrally](https://twitter.com/hashtag/CodingRally?src=hash)    
+Youtube: https://www.youtube.com/watch?v=rwYMwL_D-qA    
+
+
 ###Following technologies in use:
 
 <a> <a href="http://www.open-electronics.org"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ohw-logo.png" height="200" width="200"> </a>
@@ -26,11 +31,6 @@ Source code type of approach is mandatory. All used 3rd party libraries in this 
 <a> <a href="https://www.arduino.cc/"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ArduinoCommunityLogo.png" height="100" width="200"> </a>
 <a> <a href="http://mqtt.org"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/mqttorg.png" height="80" width="200"> </a>
 <a> <a href="https://github.com/"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/github.png" height="150" width="200"> </a>
-
-###Media:    
-Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twitter.com/Kampusareena) [#codingrally](https://twitter.com/hashtag/CodingRally?src=hash)    
-Youtube: https://www.youtube.com/watch?v=rwYMwL_D-qA    
-
 
 ###Special thanks for:
 
