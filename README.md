@@ -29,8 +29,8 @@ Source code type of approach is mandatory. All used 3rd party libraries in this 
 
 ###Media    
 Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twitter.com/Kampusareena) [#codingrally](https://twitter.com/hashtag/CodingRally?src=hash)    
+Youtube: https://www.youtube.com/embed/rwYMwL_D-qA    
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rwYMwL_D-qA" frameborder="0" allowfullscreen></iframe>
 
 ###Special thanks for:
 
