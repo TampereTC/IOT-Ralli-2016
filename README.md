@@ -27,7 +27,7 @@ Source code type of approach is mandatory. All used 3rd party libraries in this 
 <a> <a href="http://mqtt.org"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/mqttorg.png" height="80" width="200"> </a>
 <a> <a href="https://github.com/"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/github.png" height="150" width="200"> </a>
 
-###Media    
+###Media:    
 Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twitter.com/Kampusareena) [#codingrally](https://twitter.com/hashtag/CodingRally?src=hash)    
 Youtube: https://www.youtube.com/watch?v=rwYMwL_D-qA    
 
