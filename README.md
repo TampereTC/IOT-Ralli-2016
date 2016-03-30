@@ -5,8 +5,6 @@
 This project aims to develop [Internet of Things (IoT)] (https://en.wikipedia.org/wiki/Internet_of_Things) specific development environment for educational institutions. Easy availability and low cost components are the design principles of this gadget. In addition, an important factor is the availability of the source code for hardware drivers. This project is focusing to produce a prototype device with required IoT features and interfaces. The brains to control a robot can be placed in the cloud server, if necessary.
 Source code type of approach is mandatory. All used 3rd party libraries in this repository are also available from the github repositories as well. Including selected hardware e.g [Arduino] (https://www.arduino.cc) and [esp8266] (http://www.esp8266.com) both are based on the model of [open source electronics] (http://www.open-electronics.org/).  
 
-Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twitter.com/Kampusareena) [#codingrally](https://twitter.com/hashtag/CodingRally?src=hash) 
-
 ###Content of Ralli-Vempain repository:     
 - [Arduino Code - Refence functions to control the gadget] (https://github.com/jraivio/IoT-Ralli-Vempain/tree/master/ArduinoCode)    
 - [Interface descriptions - Reference implementation to communicate with the gadget] (https://github.com/jraivio/IoT-Ralli-Vempain/wiki)  
@@ -28,6 +26,11 @@ Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twi
 <a> <a href="https://www.arduino.cc/"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/ArduinoCommunityLogo.png" height="100" width="200"> </a>
 <a> <a href="http://mqtt.org"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/mqttorg.png" height="80" width="200"> </a>
 <a> <a href="https://github.com/"><img src="https://github.com/TampereTC/IOT-Ralli-2016/blob/master/Hardware/Pictures/github.png" height="150" width="200"> </a>
+
+###Media    
+Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twitter.com/Kampusareena) [#codingrally](https://twitter.com/hashtag/CodingRally?src=hash)    
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rwYMwL_D-qA" frameborder="0" allowfullscreen></iframe>
 
 ###Special thanks for:
 
