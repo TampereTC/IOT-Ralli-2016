@@ -29,7 +29,7 @@ Source code type of approach is mandatory. All used 3rd party libraries in this 
 
 ###Media    
 Twitter: [@RalliRitu](https://twitter.com/RalliRitu) [@Kampusareena](https://twitter.com/Kampusareena) [#codingrally](https://twitter.com/hashtag/CodingRally?src=hash)    
-Youtube: https://www.youtube.com/embed/rwYMwL_D-qA    
+Youtube: https://www.youtube.com/watch?v=rwYMwL_D-qA    
 
 
 ###Special thanks for:
