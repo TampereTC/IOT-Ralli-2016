@@ -15,15 +15,17 @@ Wiring diagram is designed by [Fritzing tool.](http://fritzing.org/home/) The so
 ###List of selected hardware:
 - [Microcontroller: Arduino Mega2560] (https://www.arduino.cc/en/Main/ArduinoBoardMega2560)
 - [H-Bridge motor driver: L298N] (http://www.geeetech.com/wiki/index.php/L298N_Motor_Driver_Board)
-- [Distance sensor: HC-SR04] (http://www.electroschematics.com/8902/hc-sr04-datasheet/)
+- [Distance sensor (Ultrasonic): HC-SR04] (http://www.electroschematics.com/8902/hc-sr04-datasheet/)
 - [Temperature and Humidity sensor: DHT11] (http://www.micropik.com/PDF/dht11.pdf)
 - [RFID reader/writer: Mifare 13.56Mhz RC522] (http://www.nxp.com/documents/data_sheet/MFRC522.pdf)
+- [Gyroscope + accelerometer sensor MPU-6050 ] (http://playground.arduino.cc/Main/MPU-6050)
+- [Magneto meter sensor (Compass) HMC5883L ] (https://learn.adafruit.com/adafruit-hmc5883l-breakout-triple-axis-magnetometer-compass-sensor/overview)
 - [Infrared line track Sensor: TCRT5000] (http://www.aliexpress.com/item/Sensor-For-Arduino-LM393-IR-Infrared-Line-Tracking-Transducer-TCRT5000-Obstacle-Avoidance-Module-Board-Photoelectric-Switch/32591217818.html)
 - [IOT Wifi-serial bridge: ESP8266-01] (https://www.adafruit.com/images/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf)
 - [Frame, Wheels and DC motor] (http://www.aliexpress.com/item/New-Motor-Smart-Robot-Car-Chassis-Kit-Speed-Encoder-Battery-Box-For-Arduino-Free-Shipping/1924502066.html)
 - [Battery 2 x 3.7V: 18650] (https://www.reddit.com/r/flashlight/wiki/18650)
 - [400 Point Breadboard] (http://www.aliexpress.com/item/400-Tie-Point-Interlocking-Solderless-mini-Breadboard-Free-Shipping-Dropshipping/1248613686.html)
-- [3.3v regulator: AMS1117] (http://www.aliexpress.com/item/1pc-DC-DC-AMS1117-1-2V-Step-Down-Voltage-Regulator-Adapter-Convertor-2P-Single-Row-Hot/32369895833.html)
+- [3.3v regulator: 2A recommended] (http://www.aliexpress.com/store/product/LM2596-LM2596S-LM2596S-ADJ-DC-DC-3-40V-Adjustable-Step-Down-Power-Supply-Module-Car-power/916106_1480308030.html)
 
 
 ###esp8266 - esp-link:    
