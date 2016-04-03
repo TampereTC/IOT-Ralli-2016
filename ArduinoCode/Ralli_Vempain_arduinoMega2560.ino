@@ -113,7 +113,8 @@ int enB = 3;
 boolean motor_active = false;
 // for motor delay
 unsigned long mStartMillis = 0;      // will store last time motor delay update
-int course; // direction
+int rightpower; // right motor power (0-100%) 
+int leftpower; // left motor power (0-100%)
 int mspeed; // motor speed
 int mdelay; // motor delay
 // millis for sensor reading interval while moving, delay 500 ms
@@ -285,8 +286,9 @@ void HandleIncomingJson() {
         pin = root["data"][0];
         value = root["data"][1];
         ldelay = root["data"][2];
-        course = root["mdata"][0];
-        mspeed = root["mdata"][1];
+        // motor control
+        rightpower = root["mdata"][0];
+        leftpower = root["mdata"][1];
         mdelay = root["mdata"][2];
     if (command=="lights") {
     // Lights on, not blinking
