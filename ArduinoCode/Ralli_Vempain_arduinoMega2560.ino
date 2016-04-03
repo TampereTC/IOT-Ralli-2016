@@ -9,6 +9,9 @@
 // No code changes are required for the esp-link
 // Github repository for esp-link https://github.com/jeelabs/esp-link
 
+// Debugging mode, serial print activated (true = on, false = off)
+boolean debugging = true;
+
 // Temperature & Humidity sensor DHT11 lib & setup
 // Adafruit version, https://github.com/adafruit/DHT-sensor-library
 // Json description: https://github.com/jraivio/IoT-Ralli-Vempain/wiki
@@ -98,6 +101,8 @@ Ultrasonic ultrasonic(TRIG_PIN,ECHO_PIN);
 #define left_edge 22 // Left sensor
 
 // Motor driver Setup
+// math library for motor control
+#include <math.h>
 // Pins L298N -> Mega board
 int enA = 8;
 int in1 = 4;
@@ -127,146 +132,78 @@ unsigned long pin12_previousMillis = 0;      // will store last time light delay
 unsigned long pin11_previousMillis = 0;      // will store last time light delay update
 
 void JsonReportSensorDHT() {
- 
   // DHT functions
-  // Reading temperature or humidity takes about 250 milliseconds!
-  float h = dht.readHumidity();  float t = dht.readTemperature();
-  // Read temperature as Fahrenheit (isFahrenheit = true)
-    float f = dht.readTemperature(true);
-    // Compute heat index in Fahrenheit (the default)
-    float hif = dht.computeHeatIndex(f, h);
-    // Compute heat index in Celsius (isFahreheit = false)
-    float hic = dht.computeHeatIndex(t, h, false);
-    // Check if any reads failed and exit early (to try again).
-    if (isnan(h) || isnan(t) || isnan(f)) {
-        // Debugging
-        //Serial.println("Failed to read from DHT sensor!");
-        return;
-    }
-    // Create Json for sensor print out
-    StaticJsonBuffer<512> jsonOutBuffer;   // 514 B
-    String rootJson = ""; String arrayJson = "";
-    JsonObject& root = jsonOutBuffer.createObject();
-    root["sensor"] = "temp_hum"; root["time"] =  TimeStr; JsonArray& array = jsonOutBuffer.createArray();
-    array.add(t); array.add(h);
-    // Print to Serial
-    root.printTo(rootJson); array.printTo(arrayJson); String JointJson = rootJson + ":" + arrayJson + "}";
-    Serial1.println(JointJson);
-    return;
+  // Create Json and publish
+  String jsonDHT = String("{\"sensor\":\"temp_hum\",\"time\":\"" + TimeStr + "\",\"data\":[" + dht.readTemperature() + "," + dht.readHumidity() + "]}");
+  if (debugging == true) { Serial.println(jsonDHT);}
+  Serial1.println(jsonDHT);
+  return;
 }
 
 void JsonReportSensorDistance(){
-
-  StaticJsonBuffer<512> jsonOutBuffer;   // 514 B
-  String rootJson = ""; String arrayJson = "";
-  JsonObject& root = jsonOutBuffer.createObject();
-  root["sensor"] = "distance"; root["time"] =  TimeStr; JsonArray& array = jsonOutBuffer.createArray();
-  array.add(ultrasonic.Ranging(CM)); // CM or INC
-    // Debugging
-    //Serial.print(ultrasonic.Ranging(CM)); // CM or INC
-    //Serial.println(" cm" ); 
-  root.printTo(rootJson); array.printTo(arrayJson); String JointJson = rootJson + ":" + arrayJson + "}";
-    // Debugging
-    //Serial.println("json string for edge:" + JointJson);
-  Serial1.println(JointJson);
+  // Create Json and publish
+  String jsonDist = String("{\"sensor\":\"distance\",\"time\":\"" + TimeStr + "\",\"data\":[" + ultrasonic.Ranging(CM) + "]}");
+  if (debugging == true) { Serial.println(jsonDist);}
+  Serial1.println(jsonDist);
   return;
 }  
-/*
- *   Read accelerometer and gyroscope raw values and send them
- *   to ESP
- * 
- */
-void JsonReportSensorAccAndGyro(){
-  // read raw accel/gyro measurements from device
-  accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 
-  // Construct json
-  StaticJsonBuffer<512> jsonOutBuffer;   // 514 B
-  String rootJson = ""; 
-  String arrayJson = "";
-  JsonObject& root = jsonOutBuffer.createObject();
-  
-  root["sensor"] = "acc_gyro"; 
-  root["time"] =  TimeStr;
-  JsonArray& array = jsonOutBuffer.createArray();
-  array.add( ax );
-  array.add( ay );
-  array.add( az );
-  array.add( gx );
-  array.add( gy );
-  array.add( gz );
-  
-  root.printTo(rootJson); 
-  array.printTo(arrayJson); 
-  String JointJson = rootJson + ":" + arrayJson + "}";
-  // Debuggung
-  //Serial.println("json string for edge:" + JointJson);
-  Serial1.println(JointJson); // Sending to ESP
+void JsonReportSensorAccAndGyro(){
+  // read raw accelerator/gyro measurements from device
+  accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+  // Create Json and publish
+  String jsonAccGyro = String("{\"sensor\":\"acc_gyro\",\"time\":\"" + TimeStr + "\",\"data\":[" + ax + "," + ay + "," + az +"," + gx +"," + gy + "," + gz + "]}");
+  if (debugging == true) { Serial.println(jsonAccGyro);}
+  Serial1.println(jsonAccGyro);
+  return;
+}
+
+void JsonReportSensorMagneto(){
+  // read raw magneto measurements from device
+  magneto.getHeading(&mx, &my, &mz);
+  // Create Json and publish
+  String jsonMagneto = String("{\"sensor\":\"magneto\",\"time\":\"" + TimeStr + "\",\"data\":[" + mx + "," + my + "," + mz + "]}");
+  if (debugging == true) { Serial.println(jsonMagneto);}
+  Serial1.println(jsonMagneto);
+  return;
 }
 
 void JsonReportSensorEdge() {
-   StaticJsonBuffer<512> jsonOutBuffer;   // 514 B
-  String rootJson = ""; String arrayJson = "";
-  JsonObject& root = jsonOutBuffer.createObject();
-  root["sensor"] = "edge"; 
-  root["time"] =  TimeStr;
-  JsonArray& array = jsonOutBuffer.createArray();
-  array.add( digitalRead(left_edge) );
-  array.add( digitalRead(right_edge) );
-  
-  root.printTo(rootJson); array.printTo(arrayJson); String JointJson = rootJson + ":" + arrayJson + "}";
-  // Debuggung
-  //Serial.println("json string for edge:" + JointJson);
-  Serial1.println(JointJson);
+  // Create Json and publish
+  String jsonEdge = String("{\"sensor\":\"edge\",\"time\":\"" + TimeStr + "\",\"data\":[" + left_edge + "," + right_edge + "]}");
+  Serial.println(jsonEdge);
+  if (debugging == true) { Serial.println(jsonEdge);}
+  Serial1.println(jsonEdge);
   return;
 }  
 void JsonReportSensorRFID() {
-  if ( ! rfid.PICC_ReadCardSerial()) 
-    return;
-  Serial.print(F("PICC type: "));
+  if ( ! rfid.PICC_ReadCardSerial()) return;
+  // Serial.print(F("PICC type: "));
   MFRC522::PICC_Type piccType = rfid.PICC_GetType(rfid.uid.sak);
-  Serial.println(rfid.PICC_GetTypeName(piccType));
+  // Serial.println(rfid.PICC_GetTypeName(piccType));
   // Check is the PICC of Classic MIFARE type
-  if (piccType != MFRC522::PICC_TYPE_MIFARE_MINI &&  
-    piccType != MFRC522::PICC_TYPE_MIFARE_1K &&
-    piccType != MFRC522::PICC_TYPE_MIFARE_4K) {
+  if (piccType != MFRC522::PICC_TYPE_MIFARE_MINI &&  piccType != MFRC522::PICC_TYPE_MIFARE_1K && piccType != MFRC522::PICC_TYPE_MIFARE_4K) {
     Serial.println(F("Your tag is not of type MIFARE Classic."));
     return;
   }
-  if (rfid.uid.uidByte[0] != nuidPICC[0] || 
-    rfid.uid.uidByte[1] != nuidPICC[1] || 
-    rfid.uid.uidByte[2] != nuidPICC[2] || 
-    rfid.uid.uidByte[3] != nuidPICC[3] ) {
-    Serial.println(F("A new card has been detected."));
-    // Define Json for sensor print out
-    StaticJsonBuffer<512> jsonOutBuffer;   // 514 B
-    String rootJson = "";
-    String arrayJson = "";
-    JsonObject& root = jsonOutBuffer.createObject();
-    root["sensor"] = "rfid";
-    JsonArray& array = jsonOutBuffer.createArray();
+  if (rfid.uid.uidByte[0] != nuidPICC[0] || rfid.uid.uidByte[1] != nuidPICC[1] || 
+    rfid.uid.uidByte[2] != nuidPICC[2] || rfid.uid.uidByte[3] != nuidPICC[3] ) {
+    // Serial.println(F("A new card has been detected."));
     // Store NUID into nuidPICC array
-    for (byte i = 0; i < 4; i++) {
-      nuidPICC[i] = rfid.uid.uidByte[i];
-      }   
-    //Serial.println(F("The NUID tag is:"));
-    //Serial.print(F("In dec: "));
+    for (byte i = 0; i < 4; i++) { nuidPICC[i] = rfid.uid.uidByte[i];
+    }   
     byte *buffer = rfid.uid.uidByte; 
     byte bufferSize = rfid.uid.size;
     String NUID = "";
     for (byte i = 0; i < bufferSize; i++) {
-      //Serial.print(buffer[i] < 0x10 ? " 0" : " ");
-      //Serial.print(buffer[i], DEC);
       NUID = String(NUID + String(buffer[i], DEC)); 
-      }
-    array.add(NUID);
-    // Print json string to Serial1
-    root.printTo(rootJson);
-    array.printTo(arrayJson);
-    String JointJson = rootJson + ":" + arrayJson + "}";
-    //Serial.println("json string for rfid:" + JointJson);
-    Serial1.println(JointJson);
     }
+    // Create Json and publish
+    String jsonRfid = String("{\"sensor\":\"rfid\",\"data\":[" + NUID + "]}");
+    if (debugging == true) { Serial.println(jsonRfid);}
+    Serial1.println(jsonRfid);
+    return;
+  }
   else Serial.println(F("Card read previously."));
   rfid.PICC_HaltA(); // Halt PICC
   rfid.PCD_StopCrypto1(); // Stop encryption on PCD
