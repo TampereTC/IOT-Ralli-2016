@@ -66,13 +66,11 @@ MFRC522::MIFARE_Key key;
 // Init array that will store new NUID 
 byte nuidPICC[3];
 
-/*
- * Gyroscope + accelerometer MPU-6050 library for Arduino by Jeff Rowberg
+/* Gyroscope + accelerometer MPU-6050 library for Arduino by Jeff Rowberg
+ * Compass (magneto) HMC5883L.h library for Arduino by Jeff Rowberg
  * https://github.com/jrowberg/i2cdevlib
- * 
  */
 #include <I2Cdev.h>
-#include <MPU6050.h>
 
 // Arduino Wire library is required if I2Cdev I2CDEV_ARDUINO_WIRE implementation
 // is used in I2Cdev.h
@@ -80,13 +78,15 @@ byte nuidPICC[3];
     #include "Wire.h"
 #endif
 
-// We use I2C address 0x69 as the default (0x68) is used by RTC
-// Due to this AD0 pin must be pulled high
-MPU6050 accelgyro(0x69);
+#include <MPU6050.h> //  Gyroscope + accelerometer
+MPU6050 accelgyro(0x69); // Due to this AD0 pin must be pulled high otherwise 0x68 as default
 
+#include <HMC5883L.h> // Magneto
+HMC5883L magneto;
 // Global variables to store the values
-int16_t ax, ay, az;
-int16_t gx, gy, gz;
+int16_t ax, ay, az; // ACC
+int16_t gx, gy, gz; // Gyro
+int16_t mx, my, mz; // Megneto
 
 // Ultrasonic HC-SR04 library for Arduino by J.Rodrigo https://github.com/JRodrigoTech/Ultrasonic-HC-SR04
 // Json description: https://github.com/jraivio/IoT-Ralli-Vempain/wiki
@@ -275,8 +275,9 @@ void HandleIncomingJson() {
     
     // Verify Json 
     if (JsonChar!=NULL && !root.success()) {
-      Serial.println("parseObject() failed: ");
-      Serial.println(JsonChar);
+      if (debugging == true) { 
+       Serial.println("parseObject() failed: ");
+       Serial.println(JsonChar); }
     }
     else {
         // Led pins 13-11
@@ -331,20 +332,20 @@ void readTime() {
     String Seconds = String(now.second(), DEC);
     TimeStr = Year + "/" + Month + "/" + Day + ":" + Hour + ":" + Minutes + ":" + Seconds;
     // Debugging
-    // Serial.print(TimeStr);
-    // Serial.println();
+    if (debugging == true) {Serial.println(TimeStr); }
+    
 }
 
 void setup() {
     // initialize both serial ports:
-    Serial.begin(9600); // Debugging
+    Serial.begin(115200); // Debugging
     delay(1000);
     Serial1.begin(115200); // Serial for esp8266
     delay(1000);
     Wire.begin(); // start I2C & RTC
     RTC.begin();
     if (! RTC.isrunning()) {
-      Serial.println("RTC is NOT running!");
+      if (debugging == true) {Serial.println("RTC is NOT running!");}
       // following line sets the RTC to the date & time this sketch was compiled
       //RTC.adjust(DateTime(__DATE__, __TIME__));
     }
@@ -357,16 +358,12 @@ void setup() {
     pinMode(left_edge,INPUT); // Left sensor
     inputString.reserve(256); // reserve 256 bytes for the inputString:
     dht.begin(); // Init DHT
-    accelgyro.initialize(); //  ACC & Gyro initialization 
+    magneto.initialize(); // magneto init
+    accelgyro.initialize(); // acc & gyro init
     // RFID setup
     SPI.begin(); // Init SPI bus
     rfid.PCD_Init(); // Init MFRC522 
     for (byte i = 0; i < 6; i++) { key.keyByte[i] = 0xFF; } // RFID byte handling
-    // HC-SR04 distance sensor setup (TBD, currently fixed VCC/GND)
-    //pinMode(4, OUTPUT); // VCC pin
-    //pinMode(7, OUTPUT); // GND ping
-    //digitalWrite(4, HIGH); // VCC +5V mode  
-    //digitalWrite(7, LOW);  // GND mode
 }
 void loop() {
     // update interval
