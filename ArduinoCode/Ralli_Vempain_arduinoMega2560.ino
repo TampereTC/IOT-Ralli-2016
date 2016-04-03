@@ -300,12 +300,14 @@ void driveMotors()
 }
 
 void stopMotors() {
-      // now turn off motors
+    // now turn off motors
     // clean up & return
-    digitalWrite(in1, LOW); digitalWrite(in2, LOW); digitalWrite(in3, LOW); digitalWrite(in4, LOW);
-    course = NULL;
-    mspeed = NULL;
-    mdelay = NULL;
+    digitalWrite(in1, HIGH); digitalWrite(in2, HIGH); digitalWrite(in3, HIGH); digitalWrite(in4, HIGH);
+    delay(100);
+    analogWrite(enA, 0); analogWrite(enB, 0);
+    rightpower = 0;
+    leftpower = 0;
+    mdelay = 0;
     motor_active = false;
     // return;
 }
