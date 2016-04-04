@@ -171,7 +171,7 @@ void JsonReportSensorMagneto(){
 
 void JsonReportSensorEdge() {
   // Create Json and publish
-  String jsonEdge = String("{\"sensor\":\"edge\",\"time\":\"" + TimeStr + "\",\"data\":[" + left_edge + "," + right_edge + "]}");
+  String jsonEdge = String("{\"sensor\":\"edge\",\"time\":\"" + TimeStr + "\",\"data\":[" + digitalRead(left_edge) + "," + digitalRead(right_edge) + "]}");
   Serial.println(jsonEdge);
   if (debugging == true) { Serial.println(jsonEdge);}
   Serial1.println(jsonEdge);
