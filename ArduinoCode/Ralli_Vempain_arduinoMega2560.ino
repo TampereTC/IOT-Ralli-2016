@@ -9,7 +9,7 @@
 // No code changes are required for the esp-link
 // Github repository for esp-link https://github.com/jeelabs/esp-link
 
-// Debugging mode, serial print activated (true = on, false = off)
+// Debugging mode, output visible via e.g arduino IDE serial monitor (true = on, false = off)
 boolean debugging = true;
 
 // Temperature & Humidity sensor DHT11 lib & setup
